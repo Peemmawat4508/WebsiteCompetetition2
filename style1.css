@@ -1,4 +1,3 @@
-
 /* Reset & basic styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Arial, sans-serif; color: #333; }
@@ -702,3 +701,148 @@ footer {
     width: 16px;
     height: 16px;
   }
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Consistent transition effects for interactive elements */
+a, button, .btn-register, .btn-hero, .btn-cta, .readmore, .footer-column ul li a {
+  transition: all 0.3s ease;
+}
+
+/* Improved form input focus state */
+.footer-subscribe input[type="email"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #22c55e;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+
+  .clients-logos {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .suitable-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stats-items {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .testimonial-content {
+    text-align: center;
+  }
+
+  .blog-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero, .clients, .suitable, .feature, .stats, .testimonial, .blog, .cta, footer {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .btn-hero {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .clients h2,
+  .suitable h2,
+  .feature-content h2,
+  .stats-content h2,
+  .testimonial-content h2,
+  .section-title {
+    font-size: 28px;
+  }
+
+  .clients p,
+  .suitable p,
+  .feature-content p,
+  .stats-content p,
+  .testimonial-text,
+  .section-description {
+    font-size: 14px;
+  }
+
+  .blog-card {
+    width: 100%;
+  }
+
+  .footer-column ul li a {
+    font-size: 12px;
+  }
+
+  .footer-subscribe input[type="email"] {
+    font-size: 14px;
+  }
+
+  .hero, .clients, .suitable, .feature, .stats, .testimonial, .blog, .cta, footer {
+    padding: 30px 0;
+  }
+}
