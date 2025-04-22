@@ -707,9 +707,16 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Consistent transition effects for interactive elements */
+/* Consistent transition effects optimized for performance */
 a, button, .btn-register, .btn-hero, .btn-cta, .readmore, .footer-column ul li a {
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  will-change: color, background-color, transform, opacity;
+}
+
+/* Hardware acceleration for smoother animations */
+.blog-card, .blog-image img, .testimonial-image img, .client-logo, .customer-icons img, .btn-register, .btn-hero, .btn-cta, .readmore {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Improved form input focus state */
@@ -845,4 +852,151 @@ a, button, .btn-register, .btn-hero, .btn-cta, .readmore, .footer-column ul li a
   .hero, .clients, .suitable, .feature, .stats, .testimonial, .blog, .cta, footer {
     padding: 30px 0;
   }
+}
+
+/* --- Reset & Base Styles --- */
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;background:#f9fafb;color:#374151;line-height:1.5;}
+
+      /* --- Blog Section Wrapper --- */
+      .blog{padding:80px 0;text-align:center;}
+      .blog .container{width:90%;max-width:1280px;margin:0 auto;}
+      .section-title{font-size:36px;font-weight:600;margin-bottom:16px;}
+      .section-description{max-width:800px;margin:0 auto 50px;font-size:16px;color:#6b7280;}
+
+      /* --- Cards Grid --- */
+      .blog-cards{display:flex;justify-content:center;flex-wrap:nowrap;gap:30px;overflow-x:auto;scrollbar-width:none;}
+      .blog-cards::-webkit-scrollbar{display:none;}
+
+      /* --- Individual Card --- */
+      .blog-card{flex:0 0 350px;position:relative;height:370px;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 4px 6px rgba(0,0,0,.05);transition:transform .3s ease,box-shadow .3s ease;}
+      .blog-card:hover{transform:translateY(-5px);box-shadow:0 10px 15px rgba(0,0,0,.1);}
+
+      /* Background image */
+      .blog-card img.card-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+      .blog-card:hover img.card-bg{transform:scale(1.05);}
+
+      /* --- Overlay Box --- */
+      .card-overlay{position:absolute;left:50%;bottom:0;transform:translateX(-50%); /* keep overlay fully inside */
+                    width:88%;padding:24px 20px;background:#ffffff;border-radius:12px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+      .card-title{font-size:1.1rem;font-weight:600;color:#6b7280;line-height:1.35;margin-bottom:18px;}
+
+      /* --- Read‑more link --- */
+      .readmore{display:inline-flex;align-items:center;font-size:1.05rem;font-weight:600;color:#22c55e;text-decoration:none;transition:opacity .2s ease;}
+      .readmore:hover{opacity:.85;}
+      .readmore img{width:20px;height:20px;margin-left:6px;transition:transform .3s ease;}
+      .readmore:hover img{transform:translateX(3px);}
+
+      /* --- Responsive Tweaks --- */
+      @media(max-width:992px){
+        .blog-cards{flex-wrap:wrap;justify-content:center;overflow:visible;}
+        .blog-card{flex:0 1 320px;margin-bottom:30px;}
+      }
+      @media (max-width:768px){
+        .blog-card{flex:0 1 100%;max-width:500px;}
+        .section-description{padding:0 20px;}
+      }
+      @media (max-width:576px){
+        .section-title{font-size:28px;}
+        .section-description{font-size:15px;}
+        .card-title{font-size:16px;}
+      }
+
+/* Mobile-first responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+        width: 100%;
+    }
+    
+    /* Header mobile styling */
+    header .container {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin: 15px 0;
+    }
+    
+    /* Hero section mobile */
+    .hero {
+        text-align: center;
+        padding: 40px 0;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-image {
+        margin: 30px auto;
+        max-width: 90%;
+    }
+    
+    /* Blog cards mobile */
+    .blog-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .blog-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Footer mobile */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-subscribe form {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-subscribe button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Tablet responsive design */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .blog-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-content {
+        max-width: 60%;
+    }
+}
+
+/* General responsive improvements */
+.blog-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-register, .btn-hero {
+    white-space: nowrap;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    min-width: 120px;
 }
